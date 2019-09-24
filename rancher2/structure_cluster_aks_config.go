@@ -6,7 +6,6 @@ func flattenClusterAKSConfig(in *AzureKubernetesServiceConfig) ([]interface{}, e
 	obj := make(map[string]interface{})
 	if in == nil {
 		return []interface{}{}, nil
-	}
 
 	if len(in.AADClientAppID) > 0 {
 		obj["add_client_app_id"] = in.AADClientAppID
