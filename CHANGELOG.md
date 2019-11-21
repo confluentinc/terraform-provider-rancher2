@@ -1,8 +1,9 @@
-## 1.7.0 (Unreleased)
+## 1.7.1 (Unreleased)
+## 1.7.0 (November 20, 2019)
 
 FEATURES:
 
-
+* **New Resource:** `rancher2_token`
 
 ENHANCEMENTS:
 
@@ -12,6 +13,7 @@ ENHANCEMENTS:
 * Added `desired nodes` support on `eks_config` argument on `rancher2_cluster` resource
 * Added `managed disk` support on `azure_config` argument on `rancher2_node_template` resource
 * Migrated provider to use `terraform-plugin-sdk`
+* Updated `rancher2_etcd_backup` documentation
 
 BUG FIXES:
 
