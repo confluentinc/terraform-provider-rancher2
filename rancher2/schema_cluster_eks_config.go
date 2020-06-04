@@ -37,6 +37,7 @@ type AmazonElasticContainerWorkerPool struct {
 
 	AMI                         string   `json:"ami,omitempty" yaml:"ami,omitempty"`
 	AssociateWorkerNodePublicIP *bool    `json:"associateWorkerNodePublicIp,omitempty" yaml:"associateWorkerNodePublicIp,omitempty"`
+	CreatePoolPerSubnet         bool     `json:"createPoolPerSubnet" yaml:"createPoolPerSubnet"`
 	DesiredNodes                int64    `json:"desiredNodes,omitempty" yaml:"desiredNodes,omitempty"`
 	EBSEncryption               bool     `json:"ebsEncryption,omitempty" yaml:"ebsEncryption,omitempty"`
 	InstanceType                string   `json:"instanceType,omitempty" yaml:"instanceType,omitempty"`
@@ -143,6 +144,12 @@ func clusterEKSConfigFields() map[string]*schema.Schema {
 						Optional:    true,
 						Default:     true,
 						Description: "Associate public ip EKS worker nodes",
+					},
+					"create_pool_per_subnet": {
+						Type:        schema.TypeBool,
+						Optional:    true,
+						Default:     true,
+						Description: "Whether to create a pool per subnet or one pool for all subnets",
 					},
 					"desired_nodes": {
 						Type:        schema.TypeInt,
