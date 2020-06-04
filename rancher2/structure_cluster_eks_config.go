@@ -74,6 +74,7 @@ func flattenClusterEKSConfig(in *AmazonElasticContainerServiceConfig) ([]interfa
 		}
 
 		workerPoolObj["associate_worker_node_public_ip"] = *workerPool.AssociateWorkerNodePublicIP
+		workerPoolObj["create_pool_per_subnet"] = workerPool.CreatePoolPerSubnet
 
 		if workerPool.DesiredNodes > 0 {
 			workerPoolObj["desired_nodes"] = int(workerPool.DesiredNodes)
@@ -215,6 +216,10 @@ func expandClusterEKSWorkerPool(workerPoolIn map[string]interface{}) (string, er
 
 	if v, ok := workerPoolIn["associate_worker_node_public_ip"].(bool); ok {
 		workerPoolObj.AssociateWorkerNodePublicIP = &v
+	}
+
+	if v, ok := workerPoolIn["create_pool_per_subnet"].(bool); ok {
+		workerPoolObj.CreatePoolPerSubnet = v
 	}
 
 	if v, ok := workerPoolIn["desired_nodes"].(int); ok && v > 0 {

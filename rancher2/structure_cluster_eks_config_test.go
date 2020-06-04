@@ -88,6 +88,7 @@ func init() {
 					},
 					"ami":                             "ami",
 					"associate_worker_node_public_ip": true,
+					"create_pool_per_subnet":          false,
 					"desired_nodes":                   4,
 					"ebs_encryption":                  false,
 					"instance_type":                   "instance",
